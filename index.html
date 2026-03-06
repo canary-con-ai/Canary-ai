@@ -78,8 +78,8 @@
                 through our elite in-house institute.
             </p>
             <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary" id="hero-consult-btn">📅 Book a Consultation</a>
-                <a href="#institute" class="btn btn-outline" id="hero-fellowship-btn">Apply for Fellowship →</a>
+                <a href="#" class="btn btn-primary" id="hero-consult-btn">📅 Book a Consultation</a>
+                <a href="#" class="btn btn-outline" id="hero-fellowship-btn">Apply for Fellowship →</a>
             </div>
             <div class="hero-scroll">Scroll to explore<span></span></div>
         </div>
@@ -162,7 +162,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-       HOW IT WORKS
+       HOW IT WORKS.
   ═══════════════════════════════════════ -->
     <section class="sec" id="process">
         <div class="sec-hd reveal">
@@ -420,10 +420,9 @@
             <p>Whether you're a fund looking for AI-edge or a student ready to enter the world of quant — Canary AI is
                 your launchpad.</p>
             <div class="cta-btns">
-                <a href="mailto:canaryailtd@gmail.com" class="btn btn-primary" id="cta-consult-btn">📅 Book a
+                <a href="#" class="btn btn-primary" id="cta-consult-btn">📅 Book a
                     Consultation</a>
-                <a href="mailto:canaryailtd@gmail.com?subject=Fellowship Application" class="btn btn-outline"
-                    id="cta-apply-btn">🎓 Apply for Fellowship</a>
+                <a href="#" class="btn btn-outline" id="cta-apply-btn">🎓 Apply for Fellowship</a>
             </div>
             <div class="cta-contact-info">
                 <div class="cta-contact-item">
@@ -437,6 +436,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Fellowship Popup Modal -->
+<div id="fellowshipModal" class="consult-modal">
+  <div class="consult-modal-content">
+    <span class="fellowship-close consult-close">&times;</span>
+    <h2>Apply for Fellowship</h2>
+
+    <form id="fellowshipForm">
+      <input type="text" name="user_name" placeholder="Full Name" required>
+      <input type="email" name="user_email" placeholder="Email Address" required>
+      <input type="tel" name="user_phone" placeholder="Phone Number" required>
+      <input type="text" name="education" placeholder="Education / College" required>
+      <textarea name="message" placeholder="Why do you want to join?" required></textarea>
+      <button type="submit" class="btn btn-indigo" style="width:100%;">Submit Application</button>
+    </form>
+  </div>
+</div>
 
     <!-- ═══════════════════════════════════════
        FOOTER
@@ -498,8 +514,65 @@
     </footer>
 
     <!-- JavaScript (loaded at end of body for best performance) -->
+     <!-- Consultation Popup Modal -->
+<div id="consultationModal" class="consult-modal">
+  <div class="consult-modal-content">
+    <span class="consult-close">&times;</span>
+    <h2>Book a Consultation</h2>
+
+    <form id="consultationForm">
+      <input type="text" name="user_name" placeholder="Full Name" required>
+      <input type="email" name="user_email" placeholder="Email Address" required>
+      <input type="tel" name="user_phone" placeholder="Phone Number" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function(){
+    emailjs.init("-_jBllA8BAtflyZBY");
+  })();
+
+  document.getElementById("consultationForm")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_4qm43ci",
+        "template_oi6zyex",
+        this
+      ).then(function() {
+        alert("Message Sent Successfully!");
+        document.getElementById("consultationForm").reset();
+        document.getElementById("consultationModal").style.display = "none";
+      }, function(error) {
+        alert("Failed to send message.");
+      });
+    });
+</script>
+<script>
+  document.getElementById("fellowshipForm")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_4qm43ci",
+        "template_oi6zyex",
+        this
+      ).then(function() {
+        alert("Application Submitted Successfully!");
+        document.getElementById("fellowshipForm").reset();
+        document.getElementById("fellowshipModal").style.display = "none";
+      }, function(error) {
+        alert("Failed to submit application.");
+      });
+    });
+</script>
     <script src="js/main.js"></script>
 
-</body>
-
-</html>
+</body></html>

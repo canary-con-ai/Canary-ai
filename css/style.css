@@ -953,3 +953,85 @@ footer {
   .footer-bottom  { flex-direction: column; text-align: center; }
   .cta-box        { padding: 2.5rem 1.5rem; }
 }
+
+/* ===============================
+   CONSULTATION POPUP MODAL
+================================= */
+
+.consult-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.consult-modal-content {
+  background: #111827;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: fadeInScale 0.3s ease;
+}
+
+.consult-modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.consult-modal-content input,
+.consult-modal-content textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #1f2937;
+  color: #fff;
+  font-family: inherit;
+}
+
+.consult-modal-content input:focus,
+.consult-modal-content textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.consult-modal-content textarea {
+  resize: none;
+  height: 120px;
+}
+
+.consult-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.consult-close:hover {
+  color: #fff;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
